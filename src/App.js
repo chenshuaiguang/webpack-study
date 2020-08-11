@@ -8,24 +8,10 @@ import Index from "./route/index"
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Route1></Route1>
-      </header> */}
       <BrowserRouter>
       <Switch>
-        <Route path="/" component={Index}></Route>
-        <Route path="/route1" component={Route1}></Route>
+        <Route path="/" exact  component={Index}></Route>
+        <Route exact path="/route1" component={Route1}></Route>
         <Route  component={Error}></Route>
       </Switch>
       </BrowserRouter>
