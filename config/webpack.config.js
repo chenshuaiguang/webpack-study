@@ -1,4 +1,4 @@
-'use strict';
+
 
 const fs = require('fs');
 const path = require('path');
@@ -118,9 +118,10 @@ module.exports = function(webpackEnv) {
           },
         },
         {
-          loader: require.resolve(preProcessor),
+          loader: require.resolve(preProcessor.loader),
           options: {
             sourceMap: true,
+            ...preProcessor.options
           },
         }
       );
@@ -432,6 +433,11 @@ module.exports = function(webpackEnv) {
               use: getStyleLoaders({
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
+              },{
+                loader:'px2rem-loader',
+                options: {
+                  remUnit: 75//这个是重点，设计稿是750px
+                }
               }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -462,7 +468,12 @@ module.exports = function(webpackEnv) {
                   importLoaders: 3,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
-                'sass-loader'
+                {
+                  loader:'sass-loader',
+                  options: {
+                 
+                  }
+                }
               ),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -482,7 +493,12 @@ module.exports = function(webpackEnv) {
                     getLocalIdent: getCSSModuleLocalIdent,
                   },
                 },
-                'sass-loader'
+                {
+                  loader:'sass-loader',
+                  options: {
+                 
+                  }
+                }
               ),
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.

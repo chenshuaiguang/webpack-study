@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-size: 75px;
 }
 
 .App-logo {
@@ -35,4 +36,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+.greenBox{
+  width: 75px;
+  height: 100px;
+  background: green;
 }

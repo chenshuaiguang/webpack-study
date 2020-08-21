@@ -5,6 +5,7 @@ import {BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import Route1 from "./route/router1"
 import Error from "./route/error"
 import Index from "./route/index"
+import 'lib-flexible/flexible'
 function App() {
   return (
     <div className="App">
